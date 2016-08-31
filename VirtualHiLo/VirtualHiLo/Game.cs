@@ -22,7 +22,8 @@ namespace VirtualHiLo
         int userGuess = 0;
         int randNumber;
         int userDifficulty;
-        
+        Random rand = new Random();
+
         public virtualHiLo()
         {
             InitializeComponent();
@@ -72,7 +73,6 @@ namespace VirtualHiLo
 
         private void newGameBtn_Click(object sender, EventArgs e)
         {
-            Random rand = new Random();
             randNumber = rand.Next(1, 101);
             userGuess = 0;
 
@@ -80,7 +80,6 @@ namespace VirtualHiLo
             guessBtn.Visible = true;
             resultTextBox.Clear();
             guessesLbl.Text = Convert.ToString(userDifficulty - userGuess);
-            //label1.Text = Convert.ToString(randNumber);
         }
 
         private void easyGuessMenuItem_Click(object sender, EventArgs e)
@@ -106,13 +105,13 @@ namespace VirtualHiLo
         }
         private void clearMenuChecked()
         {
-            if(easyGuessMenuItem.Checked == true)
+            if(easyGuessMenuItem.Checked)
             {
                 easyGuessMenuItem.Checked = false;
-            } else if (mediumGuessMenuItem.Checked == true)
+            } else if (mediumGuessMenuItem.Checked)
             {
                 mediumGuessMenuItem.Checked = false;
-            } else if (hardGuessMenuItem.Checked == true)
+            } else if (hardGuessMenuItem.Checked)
             {
                 hardGuessMenuItem.Checked = false;
             } else
@@ -122,19 +121,19 @@ namespace VirtualHiLo
         }
         private void checkDifficulty()
         {
-            if (easyGuessMenuItem.Checked == true)
+            if (easyGuessMenuItem.Checked)
             {
                 userDifficulty = 10;
             }
-            else if (mediumGuessMenuItem.Checked == true)
+            else if (mediumGuessMenuItem.Checked)
             {
                 userDifficulty = 7;
             }
-            else if (hardGuessMenuItem.Checked == true)
+            else if (hardGuessMenuItem.Checked)
             {
                 userDifficulty = 5;
             }
-            else if (expertGuessMenuItem.Checked == true)
+            else if (expertGuessMenuItem.Checked)
             {
                 userDifficulty = 3;
             }
